@@ -53,3 +53,9 @@ console.log(now.getMinutes());
 
 //초
 console.log(now.getSeconds());
+
+//우리나라 시간대를 전세계 표준시를 변환해서 반환
+const gmtNow = now.toGMTString();
+const gmtNow1 = now.toUTCString();
+console.log(gmtNow);
+console.log(gmtNow1);
