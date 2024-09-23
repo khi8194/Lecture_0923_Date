@@ -59,11 +59,24 @@ function changeTheme() {
 		{ className: "morning", period: [5, 11] },
 		{ className: "afternoon", period: [11, 16] },
 		{ className: "evening", period: [16, 20] },
-		{ className: "night", period: [20, 5] },
+		{ className: "night", period: [20, 5] }
 	];
 
 	main.className = "";
 
+	// themeData.forEach(
+	//   data => { data.className != 'night'? hr >= data.period[0] && hr < data.period[1] && main.classList.add(data.className)
+	//   : (hr >= data.period[0] && hr < data.period[1]) && main.classList.add(data.className)
+	// });
+	themeData.forEach(data => {
+		if (data.className != "night") {
+			if (hr >= data.period[0] && hr < data.period[1]) main.classList.add(data.className);
+		} else {
+			if (hr >= data.period[0] || hr < data.period[1]) main.classList.add(data.className);
+		}
+	});
+
+	/*
 	if (hr >= 5 && hr < 11) {
 		main.className = "";
 		main.classList.add("morning");
@@ -80,4 +93,10 @@ function changeTheme() {
 		main.className = "";
 		main.classList.add("night");
 	}
+  */
+
+	if (hr >= 5 && hr < 11) main.classList.add("morning");
+	if (hr >= 11 && hr < 16) main.classList.add("afternoon");
+	if (hr >= 16 && hr < 20) main.classList.add("evening");
+	if (hr >= 20 && hr < 5) main.classList.add("night");
 }
