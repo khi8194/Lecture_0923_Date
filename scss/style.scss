@@ -5,9 +5,11 @@ main{
   width:100%;
   height: 100vh;
   background: url(../img/bg_morning.jpg) no-repeat center/cover;
+  position: relative;
+  overflow: hidden;
 
   article {
-    width: 37%;
+    width: 35%;
     position: absolute;
     top: 40%;
     left: 5%;
@@ -27,6 +29,73 @@ main{
       font: 1rem/1.2 'arial';
       color: #fff;
       letter-spacing: 2px;
+    }
+  }
+
+  figure {
+    width: 1200px;
+    height: 800px;
+    position: absolute;
+    right: -10%;
+    // bottom: -5%; //화면 정 중앙에서 위로 올라갈 수 있게 top으로 변경
+    top : 50%;
+    margin-top: -200px;
+    background: url(../img/phone_morning.png) no-repeat right top/contain;
+
+    .screen {
+      width: 534px;
+      height: 300px;
+      position: absolute;
+      border: 1px solid red;
+      // 개발자 도구 들어가서 요소탭 -> 메인 안쪽 피규어 안쪽 스크린 찾기
+      // 아래에서 스타일탭 찾아 top,left 찾아서 수동으로 값 변경하면서 핸드폰 스크린에 맞추기
+      //width와 height 도 동일하게
+      //미리보기 형식으로만 볼 수 있기 떄문에 값을 기억하고 스타일시트에 넣어줘야함
+      top: 98px;
+      left: 133px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 20px;
+      font: 60px/1 'orbitron';
+      color: #fff;
+    }
+  }
+}
+
+@media screen and (max-width: 1600px) {
+  main {
+    figure {
+      transform-origin: right center;
+      transform: scale(0.8);
+      margin-top: -250px;
+    }
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  main {
+    article {
+      width: 100%;
+      top: 10%;
+      left: 0px;
+      padding: 10%;
+    }
+    figure {
+      margin-top: -200px;
+      transform: scale(0.7);
+    }
+  }
+}
+
+@media screen and (max-width: 800px) {
+  main {
+    article {
+      top: 0px;
+    }
+    figure {
+      transform: scale(0.6);
+      right: -20%;
     }
   }
 }
