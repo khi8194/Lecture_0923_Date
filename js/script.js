@@ -8,14 +8,22 @@
 
   script연결시 type='module'이라고 지정하면 해당 파일 안쪽의 선언된 변수는 설사 코드블록 밖에서 선언되었더라도
   파일자체의 전용 스코프가 설정되어 다른파일에서 해당 파일의 변수 접근이 불가능한 모듈화 상태 유지
-  
+
   type='module'지정시 defer와 마찬가지로 스크립트와 body안쪽코드가 비동기적으로(동시에) 해석됨
 */
+import { themeData } from "./data.js";
 
 const main = document.querySelector("main");
 const numbers = document.querySelectorAll(".screen span");
 const [am, pm] = document.querySelectorAll(".screen em");
 
+console.log(themeData);
+
+/*
+15:00 강의영상 다시 확인해보기
+*/
+
+//1초마다 반복 실행
 setInterval(() => {
 	changeTheme();
 	getTime().forEach((num, idx) => setTime(num, idx));
@@ -51,12 +59,12 @@ function setTime(num, index) {
 function changeTheme() {
 	const hr = new Date().getHours();
 
-	const themeData = [
-		{ className: "morning", period: [5, 11] },
-		{ className: "afternoon", period: [11, 16] },
-		{ className: "evening", period: [16, 20] },
-		{ className: "night", period: [20, 5] }
-	];
+	// const themeData = [
+	// 	{ className: "morning", period: [5, 11] },
+	// 	{ className: "afternoon", period: [11, 16] },
+	// 	{ className: "evening", period: [16, 20] },
+	// 	{ className: "night", period: [20, 5] }
+	// ];
 
 	main.className = "";
 
@@ -91,8 +99,8 @@ function changeTheme() {
 	}
   */
 
-	if (hr >= 5 && hr < 11) main.classList.add("morning");
-	if (hr >= 11 && hr < 16) main.classList.add("afternoon");
-	if (hr >= 16 && hr < 20) main.classList.add("evening");
-	if (hr >= 20 && hr < 5) main.classList.add("night");
+	// if (hr >= 5 && hr < 11) main.classList.add("morning");
+	// if (hr >= 11 && hr < 16) main.classList.add("afternoon");
+	// if (hr >= 16 && hr < 20) main.classList.add("evening");
+	// if (hr >= 20 && hr < 5) main.classList.add("night");
 }
