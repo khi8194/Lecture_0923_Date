@@ -21,6 +21,7 @@ const numbers = document.querySelectorAll(".screen span");
 const [am, pm] = document.querySelectorAll(".screen em");
 
 setInterval(() => {
+	changeTheme();
 	getTime().forEach((num, idx) => setTime(num, idx));
 }, 1000);
 
@@ -52,5 +53,19 @@ function setTime(num, index) {
 function changeTheme() {
 	const hr = new Date().getHours();
 	if (hr >= 5 && hr < 11) {
+		main.className = "";
+		main.classList.add("morning");
+	}
+	if (hr >= 11 && hr < 16) {
+		main.className = "";
+		main.classList.add("afternoon");
+	}
+	if (hr >= 16 && hr < 20) {
+		main.className = "";
+		main.classList.add("evening");
+	}
+	if (hr >= 20 && hr < 5) {
+		main.className = "";
+		main.classList.add("night");
 	}
 }
