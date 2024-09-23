@@ -18,6 +18,10 @@ setInterval(() => {
 // 함수로 만들기
 const numbers = document.querySelectorAll(".screen span");
 
+setInterval(() => {
+	getTime().forEach((num, idx) => setTime(num, idx)); // 배열을 반환 forEach연결 가능
+}, 1000);
+
 //시간값을 구해서 반환하는 함수
 function getTime() {
 	const now = new Date();
@@ -35,7 +39,3 @@ function setTime(num, index) {
 	//각 span 배열에서 두번째 인수로 전달받은 index번째 요소에 위에서 가공한 num값을 출력
 	numbers[index].innerText = num;
 }
-
-setInterval(() => {
-	getTime().forEach((num, idx) => setTime(num, idx)); // 배열을 반환 forEach연결 가능
-}, 1000);
