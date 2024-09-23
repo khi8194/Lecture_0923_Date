@@ -54,6 +54,16 @@ function setTime(num, index) {
 //시간에 따른 테마 변경 함수
 function changeTheme() {
 	const hr = new Date().getHours();
+
+	const themeData = [
+		{ className: "morning", period: [5, 11] },
+		{ className: "afternoon", period: [11, 16] },
+		{ className: "evening", period: [16, 20] },
+		{ className: "night", period: [20, 5] },
+	];
+
+	main.className = "";
+
 	if (hr >= 5 && hr < 11) {
 		main.className = "";
 		main.classList.add("morning");
